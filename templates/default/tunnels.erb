@@ -6,6 +6,6 @@
 #TYPE           ZONE    GATEWAY
 #                                                                 PORT      PORT(S)             DEST              LIMIT         GROUP
 
-<%= node[:shorewall][:tunnels].each do |tunnel| -%>
+<% node[:shorewall][:tunnels].each do |tunnel| -%>
 <%= tunnel %>
 <% end -%>
