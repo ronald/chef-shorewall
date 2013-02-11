@@ -48,3 +48,8 @@ attribute 'shorewall/masquerades',
   :display_name => 'Masquerades',
   :description => 'An array of Shorewall masquerading rules to add to the Shorewall configuration.',
   :type => 'array'
+
+attribute 'shorewall/tunnels',
+  :display_name => 'Tunnels',
+  :description => 'An array of Shorewall tunnel definitions to add to the Shorewall configuration.',
+  :type => 'array'

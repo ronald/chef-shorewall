@@ -31,7 +31,7 @@ template '/etc/default/shorewall' do
 end
 
 # Write the Shorewall configuration files.
-%w(shorewall.conf interfaces zones policy routestopped rules masq hosts).each do |configuration_file|
+%w(shorewall.conf interfaces zones policy routestopped rules masq hosts tunnels).each do |configuration_file|
   template "/etc/shorewall/#{configuration_file}" do
     source "#{configuration_file}.erb"
     owner 'root'

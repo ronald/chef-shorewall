@@ -3,5 +3,6 @@ default[:shorewall][:interfaces]    = []
 default[:shorewall][:rules]         = []
 default[:shorewall][:policies]      = []
 default[:shorewall][:masquerades]   = []
+default[:shorewall][:tunnels]       = []
 default[:shorewall][:clamp_mss]     = 'No'
 default[:shorewall][:ip_forwarding] = 'Keep'
