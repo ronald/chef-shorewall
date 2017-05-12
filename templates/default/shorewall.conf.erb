@@ -19,172 +19,217 @@ VERBOSITY=1
 #            L O G G I N G
 ###############################################################################
 
-LOGFILE=/var/log/messages
+BLACKLIST_LOG_LEVEL=
 
-STARTUP_LOG=/var/log/shorewall-init.log
+INVALID_LOG_LEVEL=
+
+LOG_BACKEND=
+
+LOG_MARTIANS=Yes
 
 LOG_VERBOSITY=2
+
+LOGALLNEW=
+
+LOGFILE=/var/log/messages
 
 LOGFORMAT="Shorewall:%s:%s:"
 
 LOGTAGONLY=No
 
-LOGRATE=
-
-LOGBURST=
-
-LOGALLNEW=
-
-BLACKLIST_LOGLEVEL=
-
 MACLIST_LOG_LEVEL=info
 
-TCP_FLAGS_LOG_LEVEL=info
+RELATED_LOG_LEVEL=
+
+RPFILTER_LOG_LEVEL=info
+
+SFILTER_LOG_LEVEL=info
 
 SMURF_LOG_LEVEL=info
 
-LOG_MARTIANS=Yes
+STARTUP_LOG=/var/log/shorewall-init.log
+
+TCP_FLAGS_LOG_LEVEL=info
+
+UNTRACKED_LOG_LEVEL=
 
 ###############################################################################
 # L O C A T I O N   O F F I L E S   A N D   D I R E C T O R I E S
 ###############################################################################
 
+ARPTABLES=
+
+CONFIG_PATH="/etc/shorewall:/usr/share/shorewall"
+
+GEOIPDIR=/usr/share/xt_geoip/LE
+
 IPTABLES=
 
 IP=
 
-TC=
-
 IPSET=
 
-PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin
-
-SHOREWALL_SHELL=/bin/sh
-
-SUBSYSLOCK=""
+LOCKFILE=
 
 MODULESDIR=
 
-CONFIG_PATH=/etc/shorewall:/usr/share/shorewall
+NFACCT=
+
+PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin"
+
+PERL=/usr/bin/perl
 
 RESTOREFILE=
 
-IPSECFILE=zones
+SHOREWALL_SHELL=/bin/sh
 
-LOCKFILE=
+SUBSYSLOCK=
+
+TC=
 
 ###############################################################################
 #   D E F A U L T   A C T I O N S / M A C R O S
 ###############################################################################
 
-DROP_DEFAULT="Drop"
-REJECT_DEFAULT="Reject"
-ACCEPT_DEFAULT="none"
-QUEUE_DEFAULT="none"
-NFQUEUE_DEFAULT="none"
+ACCEPT_DEFAULT=none
+DROP_DEFAULT=Drop
+NFQUEUE_DEFAULT=none
+QUEUE_DEFAULT=none
+REJECT_DEFAULT=Reject
 
 ###############################################################################
 #                        R S H / R C P  C O M M A N D S
 ###############################################################################
 
-RSH_COMMAND='ssh ${root}@${system} ${command}'
 RCP_COMMAND='scp ${files} ${root}@${system}:${destination}'
+RSH_COMMAND='ssh ${root}@${system} ${command}'
 
 ###############################################################################
 #     F I R E W A L L   O P T I O N S
 ###############################################################################
+CCOUNTING=Yes
 
-IP_FORWARDING=<%= node[:shorewall][:ip_forwarding] %>
+ACCOUNTING_TABLE=filter
 
 ADD_IP_ALIASES=Yes
 
 ADD_SNAT_ALIASES=No
 
-RETAIN_ALIASES=No
+ADMINISABSENTMINDED=Yes
 
-TC_ENABLED=Internal
+BASIC_FILTERS=No
 
-TC_EXPERT=No
+IGNOREUNKNOWNVARIABLES=No
 
-CLEAR_TC=Yes
+AUTOCOMMENT=Yes
 
-MARK_IN_FORWARD_CHAIN=No
+AUTOHELPERS=Yes
+
+AUTOMAKE=No
+
+BLACKLIST="NEW,INVALID"
+
+CHAIN_SCRIPTS=Yes
 
 CLAMPMSS=<%= node[:shorewall][:clamp_mss] %>
 
-ROUTE_FILTER=Yes
+CLEAR_TC=Yes
+
+COMPLETE=No
+
+DEFER_DNS_RESOLUTION=Yes
+
+DELETE_THEN_ADD=Yes
 
 DETECT_DNAT_IPADDRS=No
 
-MUTEX_TIMEOUT=60
-
-ADMINISABSENTMINDED=Yes
-
-BLACKLISTNEWONLY=Yes
-
-DELAYBLACKLISTLOAD=No
-
-MODULE_SUFFIX=ko
-
 DISABLE_IPV6=No
 
-BRIDGING=No
+DONT_LOAD=
 
-DYNAMIC_ZONES=No
+DYNAMIC_BLACKLIST=Yes
 
-PKTTYPE=Yes
+EXPAND_POLICIES=Yes
 
-NULL_ROUTE_RFC1918=No
+EXPORTMODULES=No
+
+FASTACCEPT=No
+
+FORWARD_CLEAR_MARK=
+
+HELPERS=
+
+IMPLICIT_CONTINUE=No
+
+INLINE_MATCHES=No
+
+IPSET_WARNINGS=Yes
+
+IP_FORWARDING=<%= node[:shorewall][:ip_forwarding] %>
+
+KEEP_RT_TABLES=No
+
+LOAD_HELPERS_ONLY=Yes
 
 MACLIST_TABLE=filter
 
 MACLIST_TTL=
 
-SAVE_IPSETS=No
+MANGLE_ENABLED=Yes
 
 MAPOLDACTIONS=No
 
-FASTACCEPT=No
+MARK_IN_FORWARD_CHAIN=No
 
-IMPLICIT_CONTINUE=No
-
-HIGH_ROUTE_MARKS=No
-
-USE_ACTIONS=Yes
-
-OPTIMIZE=0
-
-EXPORTPARAMS=Yes
-
-USE_ACTIONS=Yes
-
-OPTIMIZE=0
-
-EXPORTPARAMS=Yes
-
-EXPAND_POLICIES=Yes
-
-KEEP_RT_TABLES=No
-
-DELETE_THEN_ADD=Yes
+MODULE_SUFFIX=ko
 
 MULTICAST=No
 
-DONT_LOAD=
+MUTEX_TIMEOUT=60
 
-AUTO_COMMENT=Yes
+NULL_ROUTE_RFC1918=No
 
-MANGLE_ENABLED=Yes
+OPTIMIZE=0
 
-USE_DEFAULT_RT=No
+OPTIMIZE_ACCOUNTING=No
+
+REJECT_ACTION=
+
+REQUIRE_INTERFACE=No
+
+RESTART=reload
 
 RESTORE_DEFAULT_ROUTE=Yes
 
-AUTOMAKE=No
+RESTORE_ROUTEMARKS=Yes
 
-WIDE_TC_MARKS=No
+RETAIN_ALIASES=No
+
+ROUTE_FILTER=Yes
+
+SAVE_ARPTABLES=No
+
+SAVE_IPSETS=No
+
+TC_ENABLED=Internal
+
+TC_EXPERT=No
+
+TC_PRIOMAP="2 3 3 3 2 3 1 1 2 2 2 2 2 2 2 2"
 
 TRACK_PROVIDERS=No
+
+TRACK_RULES=No
+
+USE_DEFAULT_RT=No
+
+USE_PHYSICAL_NAMES=No
+
+USE_RT_NAMES=No
+
+WARNOLDCAPVERSION=Yes
+
+WORKAROUNDS=No
 
 ZONE2ZONE=2
 
@@ -192,10 +237,36 @@ ZONE2ZONE=2
 #     P A C K E T   D I S P O S I T I O N
 ###############################################################################
 
+
 BLACKLIST_DISPOSITION=DROP
+
+INVALID_DISPOSITION=CONTINUE
 
 MACLIST_DISPOSITION=REJECT
 
+RELATED_DISPOSITION=ACCEPT
+
+RPFILTER_DISPOSITION=DROP
+
+SMURF_DISPOSITION=DROP
+
+SFILTER_DISPOSITION=DROP
+
 TCP_FLAGS_DISPOSITION=DROP
 
+UNTRACKED_DISPOSITION=CONTINUE
+
+################################################################################
+#			P A C K E T  M A R K  L A Y O U T
+################################################################################
+
+TC_BITS=8
+
+PROVIDER_BITS=8
+
+PROVIDER_OFFSET=0
+
+MASK_BITS=8
+
+ZONE_BITS=0
 #LAST LINE -- DO NOT REMOVE
