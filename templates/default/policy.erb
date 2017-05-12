@@ -6,14 +6,9 @@
 ###############################################################################
 #SOURCE         DEST            POLICY          LOG LEVEL       LIMIT:BURST
 
-loc             pub             ACCEPT
-loc             prv             ACCEPT
 <% node[:shorewall][:policies].each do |policy| -%>
 <%= policy %>
 <% end -%>
-
-pub             all             DROP            info
-prv             all             DROP            info
 
 # The following policy must be last
 all             all             REJECT          info

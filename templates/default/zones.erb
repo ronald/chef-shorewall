@@ -6,10 +6,6 @@
 ###############################################################################
 #ZONE   INTERFACE       BROADCAST       OPTIONS
 
-loc     firewall
-pub     ipv4
-prv     ipv4
-
 <% node[:shorewall][:zones].each do |zone| -%>
 <%= zone %>
 <% end -%>

@@ -7,13 +7,6 @@
 #ACTION             SOURCE                DEST            PROTO   DEST      SOURCE              ORIGINAL          RATE          USER/         MARK        CONNLIMIT         TIME
 #                                                                 PORT      PORT(S)             DEST              LIMIT         GROUP
 
-# Accept DNS connections from the firewall to the network
-DNS(ACCEPT)         pub                   loc
-
-# Allow ICMP ping through
-ACCEPT              pub                   loc             icmp
-ACCEPT              prv                   loc             icmp
-
 <% node[:shorewall][:rules].uniq.each do |rule| -%>
 <%= rule %>
 <% end -%>

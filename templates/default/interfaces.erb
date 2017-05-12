@@ -6,9 +6,6 @@
 ###############################################################################
 #ZONE   INTERFACE       BROADCAST       OPTIONS
 
-pub     eth0            detect          tcpflags,nosmurfs,routefilter,logmartians
-prv     eth1            detect          tcpflags,nosmurfs,routefilter,logmartians
-
 <% node[:shorewall][:interfaces].each do |interface| -%>
 <%= interface %>
 <% end -%>
